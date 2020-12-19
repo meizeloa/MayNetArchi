@@ -5,7 +5,7 @@
 
 `router ospf UNDERLAY` 
 
-`router-id 10.41.0.1` 
+`router-id 10.41.0.1` [//см. таблицу адресации](Lab1.md)
 
 `area 0.0.0.0 authentication message-digest` 
 
@@ -21,7 +21,7 @@
 
 `mtu 9192 `
 
-`ip address 10.41.21.6/31 `
+`ip address 10.41.21.6/31 ` [//см. таблицу адресации](Lab1.md)
 
 `ip ospf message-digest-key 1 md5 3 b1b6c42575656fcd `
 
