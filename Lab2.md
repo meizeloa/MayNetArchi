@@ -13,22 +13,22 @@
   
 *На каждом интерфейсе, участвующем в ospf-маршрутизации:*
 
-`interface EthernetN
+`interface EthernetN`
 
-description to_S2 
+`description to_S2` 
 
-no switchport 
+`no switchport` 
 
-mtu 9192 
+`mtu 9192 `
 
-ip address 10.41.21.6/31 
+`ip address 10.41.21.6/31 `
 
-ip ospf message-digest-key 1 md5 3 b1b6c42575656fcd 
+`ip ospf message-digest-key 1 md5 3 b1b6c42575656fcd `
 
-ip ospf network point-to-point 
+`ip ospf network point-to-point `
 
-no ip ospf passive-interface 
+`no ip ospf passive-interface `
 
-ip router ospf UNDERLAY area 0.0.0.0 
+`ip router ospf UNDERLAY area 0.0.0.0 `
 
-no shutdown`
+`no shutdown`
