@@ -4,11 +4,15 @@
 *Глобальная настройка ospf*
 
 `router ospf UNDERLAY` 
+
 `router-id 10.41.0.1` 
+
 `area 0.0.0.0 authentication message-digest` 
+
 `passive-interface default` 
   
 *На каждом интерфейсе, участвующем в ospf-маршрутизации:*
+
 `interface EthernetN 
   description to_S2 
   no switchport 
