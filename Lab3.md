@@ -11,9 +11,17 @@
 
 `authentication-type md5 level-1`
 
-`authentication key-chain gfhjkm_1 level-1`
+`authentication key-chain ISIS_AUTH level-1`
 
 `address-family ipv4 unicast`
+
+*Настройка авторизации*
+
+`key chain ISIS_AUTH`
+
+`key 1`
+
+`key-string 7 070827444402143a46`
 
 *На каждом интерфейсе, устанавливающем isis-соседство:*
 
