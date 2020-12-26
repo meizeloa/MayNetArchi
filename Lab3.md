@@ -23,8 +23,6 @@
 
 `no switchport` 
 
-`mtu 9192 `
-
 `ip address 10.41.21.6/31 ` [//см. таблицу адресации](Lab1.md)
 
 `ip router isis UNDERLAY`
@@ -40,8 +38,6 @@
 `description to_R2` 
 
 `no switchport` 
-
-`mtu 9192 `
 
 `ip address 10.41.31.1/30 ` [//см. таблицу адресации](Lab1.md)
 
