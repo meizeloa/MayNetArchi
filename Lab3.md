@@ -4,18 +4,33 @@
 #### Топология сети
 ![](underlay-isis.PNG)
 
-*Глобальная настройка isis*
-
-R1
-``` router isis UNDERLAY
+<details>
+  <summary>R1</summary>
+<pre><code>
+router isis UNDERLAY
  net 49.0003.1001.1001.1001.00
  is-type level-2-only
  authentication mode md5 level-2
  authentication key-chain ISIS_AUTH level-2
- metric-style wide ```
+ metric-style wide
+ 
+key chain ISIS_AUTH
+ key 1
+  key-string 7 070827444402143a46
+ 
+interface EthernetN
+ ip address 10.41.11.1 255.255.255.252 [//см. таблицу адресации](Lab1.md)
+ ip router isis UNDERLAY
+ isis circuit-type level-2-only
+</code></pre>
+ </details>
 
-Spines
-``` ```
+<details>
+  <summary>Spines</summary>
+<pre><code>
+
+</code></pre>
+ </details>
 Leafs
 
 ``` router isis UNDERLAY
