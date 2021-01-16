@@ -75,7 +75,6 @@ key chain ISIS_AUTH
  key-string 7 070827444402143a46
 
 *На каждом интерфейсе, устанавливающем isis-соседство:*
-
 interface EthernetN
 description to_S2
 no switchport
