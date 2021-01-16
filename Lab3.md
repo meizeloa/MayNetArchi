@@ -28,6 +28,35 @@ interface EthernetN
 <details>
   <summary>Spines</summary>
 <pre><code>
+router isis UNDERLAY
+  net 49.0001.1000.1000.1000.00
+  distribute level-1 into level-2 all
+  authentication-type md5 level-1
+  authentication-type md5 level-2
+  authentication key-chain ISIS_AUTH level-1
+  authentication key-chain ISIS_AUTH level-2
+  address-family ipv4 unicast
+
+key chain ISIS_AUTH
+ key 1
+  key-string 7 070827444402143a46
+
+interface Ethernet1/1
+  description to_R1
+  no switchport
+  ip address 10.41.11.2/30 [//см. таблицу адресации](Lab1.md)
+  isis circuit-type level-2
+  ip router isis UNDERLAY
+  no shutdown
+
+interface Ethernet1/N
+  description to_LN
+  no switchport
+  ip address 10.41.21.5/31 [//см. таблицу адресации](Lab1.md)
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis UNDERLAY
+  no shutdown
 
 </code></pre>
  </details>
