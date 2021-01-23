@@ -47,3 +47,20 @@ router bgp 65001
     address-family ipv4 unicast
 </code></pre>
 </details>
+<details>
+  <summary>Leaves</summary>
+<pre><code>
+feature bgp
+router bgp 65010
+  address-family ipv4 unicast
+    network 10.41.21.4/31
+    network 10.41.21.6/31
+    network 10.41.31.0/30
+  neighbor 10.41.21.5              //to S1
+    remote-as 65001
+    address-family ipv4 unicast
+  neighbor 10.41.21.7              //to S2
+    remote-as 65001
+    address-family ipv4 unicast
+</code></pre>
+</details>
