@@ -5,7 +5,7 @@
 ![](underlay-net-bgp.PNG)
 
 <details>
-  <summary>R1</summary>
+  <summary>RX</summary>
 <pre><code>
 ip multicast-routing
 int ran e0/0-2
