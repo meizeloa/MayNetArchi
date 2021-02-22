@@ -2,7 +2,7 @@
 1. Настроить PIM в сети
 
 #### Топология сети
-![](underlay-bgp.PNG)
+![](underlay-net-bgp.PNG)
 
 <details>
   <summary>R1</summary>
