@@ -34,7 +34,7 @@ ip pim sparse-mode
 </code></pre>
 </details>
 
-Подпишем интерфейс R2 e0/0 на группу рассылки:
+<h6>Подпишем интерфейс R2 e0/0 на группу рассылки:</h6>
 
 _ip igmp static-group 224.1.1.1_
 
@@ -70,7 +70,7 @@ Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7
   
 Outgoing interface list: (count: 1) Ethernet1/1, uptime: 3d14h, pim_
 
-Запустим ping 224.1.1.1 на R3 в качестве источника мультикаста:
+<h6>Запустим ping 224.1.1.1 на R3 в качестве источника мультикаста:</h6>
 
 _(*, 224.1.1.1), 00:00:24/stopped, RP 10.41.2.1, flags: SPF
 
