@@ -48,87 +48,97 @@ _Outgoing interface list: Null_
 
 R1 знает об интерфейсе назначения мультикаста:
 
-_(*, 224.1.1.1), 3d13h/00:02:51, RP 10.41.2.1, flags: S
+_(*, 224.1.1.1), 3d13h/00:02:51, RP 10.41.2.1, flags: S_
 
-Incoming interface: Null, RPF nbr 0.0.0.0
+_Incoming interface: Null, RPF nbr 0.0.0.0_
 
-Outgoing interface list: Ethernet0/1, Forward/Sparse, 3d13h/00:02:51_
+_Outgoing interface list: Ethernet0/1, Forward/Sparse, 3d13h/00:02:51_
 
 S2 знает об интерфейсе RandevouzPoint и интерфейсе назначения:
 
-_(*, 224.1.1.1/32), uptime: 3d14h, pim ip
+_(*, 224.1.1.1/32), uptime: 3d14h, pim ip_
 
-Incoming interface: Ethernet1/1, RPF nbr: 10.41.12.1
+_Incoming interface: Ethernet1/1, RPF nbr: 10.41.12.1_
   
-Outgoing interface list: (count: 1) Ethernet1/3, uptime: 3d14h, pim_
+_Outgoing interface list: (count: 1) Ethernet1/3, uptime: 3d14h, pim_
   
 L2 знает об интерфейсе RandevouzPoint и интерфейсе назначения:
 
-_(*, 224.1.1.1/32), uptime: 3d14h, pim ip
+_(*, 224.1.1.1/32), uptime: 3d14h, pim ip_
   
-Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7
+_Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7_
   
-Outgoing interface list: (count: 1) Ethernet1/1, uptime: 3d14h, pim_
-
-<h6>Запустим ping 224.1.1.1 на R3 в качестве источника мультикаста:</h6>
-
-_(*, 224.1.1.1), 00:00:24/stopped, RP 10.41.2.1, flags: SPF
-
-Incoming interface: Ethernet0/0, RPF nbr 10.41.31.1
-
-Outgoing interface list: Null
+_Outgoing interface list: (count: 1) Ethernet1/1, uptime: 3d14h, pim_
 
 
-(10.41.2.3, 224.1.1.1), 00:00:24/00:02:35, flags: PFT
+<h5>Запустим ping 224.1.1.1 на R3 в качестве источника мультикаста:</h5>
 
-Incoming interface: Loopback0, RPF nbr 0.0.0.0, Registering
+Маршрут построился: R3->L1->S2->L3->R2
 
-Outgoing interface list: Null
+_(*, 224.1.1.1), 00:00:24/stopped, RP 10.41.2.1, flags: SPF_
+
+_Incoming interface: Ethernet0/0, RPF nbr 10.41.31.1_
+
+_Outgoing interface list: Null_
 
 
-(10.41.31.2, 224.1.1.1), 00:00:24/00:02:35, flags: PFT
+_(10.41.2.3, 224.1.1.1), 00:00:24/00:02:35, flags: PFT_
 
-Incoming interface: Ethernet0/0, RPF nbr 0.0.0.0, Registering
+_Incoming interface: Loopback0, RPF nbr 0.0.0.0, Registering_
 
-Outgoing interface list: Null_
+_Outgoing interface list: Null_
+
+
+_(10.41.31.2, 224.1.1.1), 00:00:24/00:02:35, flags: PFT_
+
+_Incoming interface: Ethernet0/0, RPF nbr 0.0.0.0, Registering_
+
+_Outgoing interface list: Null_
 
 L1
 
-_(10.41.31.2/32, 224.1.1.1/32), uptime: 00:01:56, ip pim
+_(10.41.31.2/32, 224.1.1.1/32), uptime: 00:01:56, ip pim_
 
-Incoming interface: Ethernet1/1, RPF nbr: 10.41.31.2
+_Incoming interface: Ethernet1/1, RPF nbr: 10.41.31.2_
 
-Outgoing interface list: (count: 1) Ethernet1/3, uptime: 00:01:55, pim_
+_Outgoing interface list: (count: 1) Ethernet1/3, uptime: 00:01:55, pim_
 
 S2
 
-_(*, 224.1.1.1/32), uptime: 3d15h, pim ip
+_(*, 224.1.1.1/32), uptime: 3d15h, pim ip_
 
-Incoming interface: Ethernet1/1, RPF nbr: 10.41.12.1
+_Incoming interface: Ethernet1/1, RPF nbr: 10.41.12.1_
 
-Outgoing interface list: (count: 1)  Ethernet1/3, uptime: 3d15h, pim
+_Outgoing interface list: (count: 1)  Ethernet1/3, uptime: 3d15h, pim_
 
 
-(10.41.31.2/32, 224.1.1.1/32), uptime: 00:08:08, pim mrib ip
+_(10.41.31.2/32, 224.1.1.1/32), uptime: 00:08:08, pim mrib ip_
 
-Incoming interface: Ethernet1/2, RPF nbr: 10.41.21.6
+_Incoming interface: Ethernet1/2, RPF nbr: 10.41.21.6_
 
-Outgoing interface list: (count: 1) Ethernet1/4, uptime: 00:08:07, pim_
+_Outgoing interface list: (count: 1) Ethernet1/4, uptime: 00:08:07, pim_
 
-L2
+L2 
 
-_(*, 224.1.1.1/32), uptime: 3d15h, pim ip
+_(*, 224.1.1.1/32), uptime: 3d15h, pim ip_
 
-Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7
+_Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7_
 
-Outgoing interface list: (count: 1)  Ethernet1/1, uptime: 3d15h, pim_
+_Outgoing interface list: (count: 1)  Ethernet1/1, uptime: 3d15h, pim_
     
 L3
 
-_(10.41.31.2/32, 224.1.1.1/32), uptime: 00:03:54, pim ip
+_(10.41.31.2/32, 224.1.1.1/32), uptime: 00:03:54, pim ip_
 
-Incoming interface: Ethernet1/3, RPF nbr: 10.41.23.7
+_Incoming interface: Ethernet1/3, RPF nbr: 10.41.23.7_
 
-Outgoing interface list: (count: 1)   Ethernet1/1, uptime: 00:03:54, pim_
+_Outgoing interface list: (count: 1)   Ethernet1/1, uptime: 00:03:54, pim_
 
 
+R2
+
+_(10.41.31.2, 224.1.1.1), 00:00:41/00:02:18, flags: JT_
+
+_Incoming interface: Ethernet0/1, RPF nbr 10.41.33.1_
+
+_Outgoing interface list:  Ethernet0/0, Forward/Sparse, 00:00:41/00:02:18, A_
