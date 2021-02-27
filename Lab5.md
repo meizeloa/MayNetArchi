@@ -38,8 +38,33 @@ ip pim sparse-mode
 
 ip igmp static-group 224.1.1.1
 
-В таблице mroute появится маршрут:
+В таблице mroute появится маршрут с неизвестным адресом источника и адресом назначения:
 
 (*, 224.1.1.1), 4d17h/stopped, RP 10.41.2.1, flags: SJPC
+
   Incoming interface: Ethernet0/0, RPF nbr 10.41.32.1
+  
   Outgoing interface list: Null
+
+R1 знает об интерфейсе назначения мультикаста:
+
+(*, 224.1.1.1), 3d13h/00:02:51, RP 10.41.2.1, flags: S
+  Incoming interface: Null, RPF nbr 0.0.0.0
+  Outgoing interface list:
+    Ethernet0/1, Forward/Sparse, 3d13h/00:02:51
+
+S2 знает об интерфейсе RandevouzPoint и интерфейсе назначения:
+
+(*, 224.1.1.1/32), uptime: 3d14h, pim ip
+
+  Incoming interface: Ethernet1/1, RPF nbr: 10.41.12.1
+  
+  Outgoing interface list: (count: 1) Ethernet1/3, uptime: 3d14h, pim
+  
+L2 знает об интерфейсе RandevouzPoint и интерфейсе назначения:
+
+(*, 224.1.1.1/32), uptime: 3d14h, pim ip
+  
+  Incoming interface: Ethernet1/3, RPF nbr: 10.41.22.7
+  
+  Outgoing interface list: (count: 1) Ethernet1/1, uptime: 3d14h, pim
