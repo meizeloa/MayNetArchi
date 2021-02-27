@@ -55,15 +55,24 @@ ip address 1.1.1.1/32
   no shutdown
   host-reachability protocol bgp
   source-interface loopback1
+  member vni 10010
+   ingress-replication protocol bgp
+
+#### evpn 
+ vni 10010 l2
+ rd auto
+ route-target both auto
+
+#### vl 10
+ vn-segment 10010
 
 #### router bgp 650N
-  address-family ipv4 unicast
+address-family ipv4 unicast
     network 1.1.1.1/32
     network 10.41.0.1/32
     network 10.41.21.4/31
     network 10.41.21.6/31
-    network 10.41.31.0/30
-  template peer SPINE
+template peer SPINE
     update-source loopback0
     address-family l2vpn evpn
       send-community
@@ -76,4 +85,8 @@ ip address 1.1.1.1/32
     inherit peer SPINE
     remote-as 65001
     address-family ipv4 unicast
+    
+#### int e1/1
+switchport 
+switchport mode trunk
 </code></pre></details>
