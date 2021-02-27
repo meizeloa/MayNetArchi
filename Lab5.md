@@ -36,19 +36,19 @@ ip pim sparse-mode
 
 Подпишем интерфейс R2 e0/0 на группу рассылки:
 
-ip igmp static-group 224.1.1.1
+_ip igmp static-group 224.1.1.1_
 
 В таблице mroute появится маршрут с неизвестным адресом источника и адресом назначения:
 
-(*, 224.1.1.1), 4d17h/stopped, RP 10.41.2.1, flags: SJPC
+_(*, 224.1.1.1), 4d17h/stopped, RP 10.41.2.1, flags: SJPC_
 
-  Incoming interface: Ethernet0/0, RPF nbr 10.41.32.1
+_Incoming interface: Ethernet0/0, RPF nbr 10.41.32.1_
   
-  Outgoing interface list: Null
+_Outgoing interface list: Null_
 
 R1 знает об интерфейсе назначения мультикаста:
 
-(*, 224.1.1.1), 3d13h/00:02:51, RP 10.41.2.1, flags: S
+_(*, 224.1.1.1), 3d13h/00:02:51, RP 10.41.2.1, flags: S
   Incoming interface: Null, RPF nbr 0.0.0.0
   Outgoing interface list:
     Ethernet0/1, Forward/Sparse, 3d13h/00:02:51
