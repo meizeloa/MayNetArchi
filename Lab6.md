@@ -47,12 +47,15 @@ feature nv overlay
 nv overlay evpn
 feature interface-vlan
 feature vn-segment-vlan-based
+
 #### int Lo1
 ip address 1.1.1.1/32
+
 #### interface nve1
   no shutdown
   host-reachability protocol bgp
   source-interface loopback1
+
 #### router bgp 650N
   address-family ipv4 unicast
     network 1.1.1.1/32
