@@ -49,7 +49,6 @@ feature interface-vlan
 feature vn-segment-vlan-based
 
 <h5>router bgp 65010</h5>
-router bgp 65010
   address-family ipv4 unicast
     network 10.41.0.1/32
     network 10.41.21.4/31
