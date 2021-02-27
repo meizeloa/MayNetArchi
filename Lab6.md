@@ -90,3 +90,11 @@ template peer SPINE
 switchport 
 switchport mode trunk
 </code></pre></details>
+
+<details>
+  <summary>RX</summary>
+<pre><code>
+interface Ethernet0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.3 255.255.255.0
+</code></pre></details>
