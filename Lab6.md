@@ -17,12 +17,13 @@ nv overlay evpn
     network 10.41.21.4/31
     network 10.41.22.4/31
     network 10.41.23.4/31
+  address-family l2vpn evpn
+    retain route-target all
   template peer LEAF
-    update-source loopback0
+    ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
-      route-reflector-client
   neighbor 10.41.11.1
     remote-as 65000
     address-family ipv4 unicast
@@ -38,6 +39,7 @@ nv overlay evpn
     inherit peer LEAF
     remote-as 65030
     address-family ipv4 unicast
+
 </code></pre></details>
 
 <details>
@@ -73,7 +75,8 @@ address-family ipv4 unicast
     network 10.41.21.4/31
     network 10.41.21.6/31
 template peer SPINE
-    update-source loopback0
+    update-source loopback1
+     ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
@@ -96,5 +99,5 @@ switchport mode trunk
 <pre><code>
 interface Ethernet0/0.10
  encapsulation dot1Q 10
- ip address 192.168.10.3 255.255.255.0
+ ip address 192.168.10.X 255.255.255.0
 </code></pre></details>
