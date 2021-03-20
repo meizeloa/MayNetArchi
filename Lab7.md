@@ -20,6 +20,14 @@ interface port-channel99
   spanning-tree port type network
   vpc peer-link
 
+interface port-channel1
+  switchport mode trunk
+
+interface Ethernet1/1
+  description to_R2
+  switchport mode trunk
+  channel-group 1 mode active
+
 interface Ethernet1/4
   description to_L2
   no switchport
