@@ -20,7 +20,6 @@ nv overlay evpn
   address-family l2vpn evpn
     retain route-target all
   template peer LEAF
-    ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
