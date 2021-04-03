@@ -14,8 +14,6 @@ route-map UNC permit 10        //для построения туннеля ме
 router bgp 65001
 !
   address-family ipv4 unicast
-    network 10.41.1.1/32
-    network 10.41.11.0/30
     network 10.41.21.4/31
     network 10.41.22.4/31
     network 10.41.23.4/31
@@ -98,7 +96,6 @@ router bgp 65020
   address-family ipv4 unicast
     network 2.2.2.2/32
     network 5.5.5.5/32
-    network 10.41.0.2/32
     network 10.41.22.4/31
     network 10.41.22.6/31
   template peer SPINE
