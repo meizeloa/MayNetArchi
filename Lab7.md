@@ -10,8 +10,10 @@
 <pre><code>
 route-map UNC permit 10        //для построения туннеля между leaves, иначе маршрут упирается в SPINE
   set ip next-hop unchanged
+!
 
 router bgp 65001
+
   address-family ipv4 unicast
     network 10.41.1.1/32
     network 10.41.11.0/30
@@ -116,6 +118,7 @@ router bgp 65020
     inherit peer SPINE
     remote-as 65001
     address-family ipv4 unicast
+
 evpn
   vni 10010 l2
     rd auto
@@ -146,7 +149,8 @@ interface Ethernet0/1
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-group 1 mode active
-
+!
 interface Vlan10
  ip address 192.168.10.2 255.255.255.0
+
 </code></pre></details>
