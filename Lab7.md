@@ -14,31 +14,36 @@ route-map UNC permit 10        //для построения туннеля ме
 router bgp 65001
 !
   address-family ipv4 unicast
- 
     network 10.41.1.1/32
     network 10.41.11.0/30
     network 10.41.21.4/31
     network 10.41.22.4/31
     network 10.41.23.4/31
+  
   address-family l2vpn evpn
     retain route-target all
+  
   template peer LEAF
     update-source loopback0
     address-family l2vpn evpn
       send-community
       send-community extended
       route-map UNC out
+  
   neighbor 10.41.11.1
     remote-as 65000
     address-family ipv4 unicast
+  
   neighbor 10.41.21.4
     inherit peer LEAF
     remote-as 65010
     address-family ipv4 unicast
+  
   neighbor 10.41.22.4
     inherit peer LEAF
     remote-as 65020
     address-family ipv4 unicast
+  
   neighbor 10.41.23.4
     inherit peer LEAF
     remote-as 65020
