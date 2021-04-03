@@ -87,32 +87,39 @@ interface Ethernet1/5
 interface Ethernet1/6
   switchport mode trunk
   channel-group 99 mode active
+
+interface loopback0
+  ip address 10.41.0.2/32
   
-router bgp 65010
+interface loopback1
+  ip address 2.2.2.2/32
+  ip address 5.5.5.5/32 secondary     //одинаковый в vpc-паре
+  
+router bgp 65020
   address-family ipv4 unicast
-    network 1.1.1.1/32
-    network 10.41.0.1/32
-    network 10.41.21.4/31
-    network 10.41.21.6/31
+    network 2.2.2.2/32
+    network 5.5.5.5/32
+    network 10.41.0.2/32
+    network 10.41.22.4/31
+    network 10.41.22.6/31
   template peer SPINE
-    update-source loopback0
+    update-source loopback1
     ebgp-multihop 2
     address-family l2vpn evpn
       send-community
       send-community extended
-  neighbor 10.41.21.5
+  neighbor 10.41.22.5
     inherit peer SPINE
     remote-as 65001
     address-family ipv4 unicast
-    address-family l2vpn evpn
-  neighbor 10.41.21.7
+  neighbor 10.41.22.7
     inherit peer SPINE
     remote-as 65001
     address-family ipv4 unicast
 evpn
   vni 10010 l2
     rd auto
-    route-target import 9999:10010              //for routing between AS
+    route-target import 9999:10010
     route-target export 9999:10010
 
 vlan 10
@@ -124,15 +131,18 @@ vlan 10
   <summary>Router</summary>
 <pre><code>
 interface Port-channel1
+ description to_LEAF
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 interface Ethernet0/0
+ description to_LEAF
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-group 1 mode active
 !
 interface Ethernet0/1
+ description to_LEAF
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-group 1 mode active
