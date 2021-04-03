@@ -11,10 +11,10 @@
 route-map UNC permit 10        //для построения туннеля между leaves, иначе маршрут упирается в SPINE
   set ip next-hop unchanged
 !
-
 router bgp 65001
-
+!
   address-family ipv4 unicast
+ 
     network 10.41.1.1/32
     network 10.41.11.0/30
     network 10.41.21.4/31
