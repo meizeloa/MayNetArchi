@@ -150,5 +150,7 @@ interface Vlan10
 </code></pre></details>
 
 Проверка конфигурации:
+
 sh vpc
+
 sh bgp l2vpn evpn 
