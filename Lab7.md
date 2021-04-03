@@ -148,3 +148,7 @@ interface Vlan10
  ip address 192.168.10.2 255.255.255.0
 
 </code></pre></details>
+
+Проверка конфигурации:
+sh vpc
+sh bgp l2vpn evpn 
