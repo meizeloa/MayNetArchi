@@ -133,7 +133,7 @@ interface Vlan99
 interface Vlan10
   no shutdown
   vrf member CLIENT
-  ip address 192.168.20.1/24
+  ip address 192.168.10.1/24
   fabric forwarding mode anycast-gateway
 
 interface nve1
@@ -178,6 +178,7 @@ interface Ethernet0/1
 !
 interface Vlan10
  ip address 192.168.10.2 255.255.255.0
+
 
 ip route 0.0.0.0 0.0.0.0 192.168.10.1
 </code></pre></details>
