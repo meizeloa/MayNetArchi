@@ -1,5 +1,5 @@
-### Лабораторная 6
-1. Настроить OVERLAY сеть по технологии VxLAN EVPN route-type 5
+### Лабораторная 8
+1. Настроить OVERLAY сеть по технологии L3VNI EVPN route-type 5
 
 #### Топология сети
 ![](vpc.PNG)
@@ -111,7 +111,9 @@ router bgp 65020
     inherit peer SPINE
     remote-as 65001
     address-family ipv4 unicast
-
+   vrf CLIENT
+    address-family ipv4 unicast
+      network 0.0.0.0/0          //редистрибьюция маршрута
 evpn
   vni 10010 l2
     rd auto
@@ -120,6 +122,37 @@ evpn
 
 vlan 10
   vn-segment 10010
+vlan 99
+  vn-segment 99000
+
+interface Vlan99
+  no shutdown
+  vrf member CLIENT
+  ip forward
+
+interface Vlan10
+  no shutdown
+  vrf member CLIENT
+  ip address 192.168.20.1/24
+  fabric forwarding mode anycast-gateway
+
+interface nve1
+  no shutdown
+  host-reachability protocol bgp
+  source-interface loopback1
+  member vni 10010
+    ingress-replication protocol bgp
+  member vni 99000 associate-vrf
+
+vrf context CLIENT                //  маршрутизация между VNI через 99000
+  vni 99000
+  ip route 0.0.0.0/0 192.168.10.2 // редистрибьюция маршрута между VNI
+  rd auto
+  address-family ipv4 unicast
+    route-target import 9999:99000
+    route-target import 9999:99000 evpn
+    route-target export 9999:99000
+    route-target export 9999:99000 evpn
 
 </code></pre></details>
 
@@ -146,6 +179,7 @@ interface Ethernet0/1
 interface Vlan10
  ip address 192.168.10.2 255.255.255.0
 
+ip route 0.0.0.0 0.0.0.0 192.168.10.1
 </code></pre></details>
 
 Проверка конфигурации:
